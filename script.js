@@ -1,11 +1,4 @@
-function convertToRoman() {
-  let num = parseInt(document.getElementById("numberInput").value);
-
-  if (isNaN(num) || num < 0 || num > 100000) {
-    document.getElementById("result").innerText = "Enter a number between 0 and 100000";
-    return;
-  }
-
+function convertToRoman(num) {
   const romanMap = [
     ["M", 1000],
     ["CM", 900],
@@ -29,6 +22,20 @@ function convertToRoman() {
       num -= value;
     }
   }
-
-  document.getElementById("result").innerText = result;
+  return result;
 }
+
+// input/output handling for platform
+process.stdin.resume();
+process.stdin.setEncoding("utf-8");
+
+let inputData = "";
+process.stdin.on("data", function (input) {
+  inputData += input;
+});
+
+process.stdin.on("end", function () {
+  inputData = inputData.trim().split("\n");
+  let num = parseInt(inputData[0]);
+  console.log(convertToRoman(num));
+});
