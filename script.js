@@ -1,5 +1,5 @@
 function convertToRoman(num) {
-    if (num === 0) return ""; // Romans did not have zero
+    if (num === 0) return ""; // Romans did not represent zero
 
     const romanMap = [
         ["M", 1000],
@@ -28,3 +28,10 @@ function convertToRoman(num) {
 
     return result;
 }
+
+// --- Do NOT change anything below ---
+// Input handling for judge
+const fs = require("fs");
+const input = fs.readFileSync(0, "utf-8").trim();
+const n = parseInt(input, 10);
+console.log(convertToRoman(n));
