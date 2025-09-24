@@ -25,7 +25,7 @@ function convertToRoman(num) {
   return result;
 }
 
-// input/output handling for platform
+// 📌 Input handling (as per coding platform)
 process.stdin.resume();
 process.stdin.setEncoding("utf-8");
 
@@ -36,6 +36,6 @@ process.stdin.on("data", function (input) {
 
 process.stdin.on("end", function () {
   inputData = inputData.trim().split("\n");
-  let num = parseInt(inputData[0]);
-  console.log(convertToRoman(num));
+  let n = parseInt(inputData[0]);   // pehla line number input hoga
+  console.log(convertToRoman(n));   // output Roman numeral
 });
