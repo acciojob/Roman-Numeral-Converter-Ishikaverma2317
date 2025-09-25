@@ -1,5 +1,7 @@
 function convertToRoman(num) {
-  const romanMap = [
+  if (num === 0) return "N"; // Sometimes "N" (nulla) is used for 0 in Roman
+  
+  const symbols = [
     ["M", 1000],
     ["CM", 900],
     ["D", 500],
@@ -16,7 +18,7 @@ function convertToRoman(num) {
   ];
 
   let result = "";
-  for (let [symbol, value] of romanMap) {
+  for (let [symbol, value] of symbols) {
     while (num >= value) {
       result += symbol;
       num -= value;
@@ -25,17 +27,8 @@ function convertToRoman(num) {
   return result;
 }
 
-// 📌 Input handling (as per coding platform)
-process.stdin.resume();
-process.stdin.setEncoding("utf-8");
-
-let inputData = "";
-process.stdin.on("data", function (input) {
-  inputData += input;
-});
-
-process.stdin.on("end", function () {
-  inputData = inputData.trim().split("\n");
-  let n = parseInt(inputData[0]);   // pehla line number input hoga
-  console.log(convertToRoman(n));   // output Roman numeral
-});
+// Example Testcases
+console.log(convertToRoman(14));    // XIV
+console.log(convertToRoman(798));   // DCCXCVIII
+console.log(convertToRoman(2024));  // MMXXIV
+console.log(convertToRoman(5000));  // MMMMM
